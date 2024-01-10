@@ -7,4 +7,13 @@ class logger extends EventEmitter {
     this.emit('message', { id: uuid.v4(), msg: msg });
   }
 }
-module.exports = logger;
+
+// module.exports = logger;
+
+const logger = new Logger();
+
+logger.on('message', (data) => console.log('Called Listener', data));
+
+logger.log('hello World');
+logger.log('hi');
+logger.log('Hello');
